@@ -1,0 +1,85 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 62.5%; }
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #222; }
+  body::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(-135deg, #ff9999, #99ccff);
+    z-index: 10;
+    pointer-events: none;
+    mix-blend-mode: multiply; }
+
+.circle {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px #fff5, 0 0 0 20px #333, 0 0 0 22px #fff, 0 0 50px #fff, 0 0 450px #fff; }
+  .circle::before {
+    content: "";
+    position: absolute;
+    width: 4px;
+    height: 170px;
+    border-radius: 2px;
+    background: linear-gradient(0deg, transparent, #fff);
+    transform-origin: bottom;
+    transform: translate(-50%, -50%);
+    animation: animationNiddles 60s steps(60) infinite; }
+  .circle::after {
+    content: "";
+    position: absolute;
+    width: 4px;
+    height: 130px;
+    border-radius: 2px;
+    background: linear-gradient(0deg, transparent, #fff);
+    transform-origin: bottom;
+    transform: translate(-50%, -50%);
+    animation: animationNiddles 3600s steps(60) infinite; }
+
+@keyframes animationNiddles {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg); }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg); } }
+
+div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: red; }
+  div li {
+    position: absolute;
+    top: 0;
+    left: 0;
+    list-style: none;
+    height: 25rem;
+    transform-origin: bottom;
+    transform: translate(-50%, -100%) rotate(calc(30deg * var(--i)));
+    font-size: 3.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: consolas; }
+    div li span {
+      width: 4rem;
+      text-align: center;
+      display: inline-block;
+      color: #fff;
+      transform-origin: rotate(calc(-21deg * var(--i))); }
